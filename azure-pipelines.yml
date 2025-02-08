@@ -21,7 +21,7 @@ strategy:
 steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '$(python.version)'
+     versionSpec: '$(python.version)'
     displayName: 'Use Python $(python.version)'
  
   - script: |
@@ -32,14 +32,14 @@ steps:
        displayName: 'Install dependencies'  
 
  
-  -  task: ArchiveFiles@2
-     displayName: 'Archive files'
-     inputs:
-      rootFolderOrFile: $(System.DefaultWorkingDirectory)
-      includeRootFolder: false
-      archiveType: zip
-      archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-$(python.version).zip 
-      replaceExistingArchive: true 
+  - task: ArchiveFiles@2
+    displayName: 'Archive files'
+    inputs:
+     rootFolderOrFile: $(System.DefaultWorkingDirectory)
+     includeRootFolder: false
+     archiveType: zip
+     archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-$(python.version).zip 
+     replaceExistingArchive: true 
 
  
 
@@ -57,8 +57,8 @@ steps:
 
   - script: | 
 
-      pip install pytest pytest-azurepipelines 
+     pip install pytest pytest-azurepipelines 
 
-      pytest 
+     pytest 
 
-      displayName: 'pytest'   
+     displayName: 'pytest'
